@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Categories - Category - My New Hugo Site</title>
+        <title>Categories - Category - Blog</title>
         <link>http://chinmay-gurjar.github.io/categories/</link>
-        <description>Categories - Category - My New Hugo Site</description>
+        <description>Categories - Category - Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>chnmgurjar@gmail.com (Chinmay)</managingEditor>
             <webMaster>chnmgurjar@gmail.com (Chinmay)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 May 2020 19:26:50 &#43;0530</lastBuildDate><atom:link href="http://chinmay-gurjar.github.io/categories/" rel="self" type="application/rss+xml" /><item>
     <title>GSoC</title>
