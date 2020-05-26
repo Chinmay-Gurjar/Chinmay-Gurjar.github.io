@@ -10,7 +10,7 @@
     <pubDate>Sun, 17 May 2020 19:26:50 &#43;0530</pubDate>
     <author>Author</author>
     <guid>http://chinmay-gurjar.github.io/posts/getting-selected/</guid>
-    <content type="html"><![CDATA[<div class="featured-image">
+    <content><![CDATA[<div class="featured-image">
                 <img src="/GSoCbg.png" referrerpolicy="no-referrer">
             </div><p>It was around 23:25(IST) on the 4th of May, my brother and I were glued to our phone screens, the GSoC webpage open, eagerly waiting for the results (he was visibly the more excited one). And BAM! 23:31, I saw my name on the GSoC website. Then followed a tsunami of “congratulations”. <strong>I&rsquo;ve been accepted into GSoC to work with GNOME</strong>.</p>
 <p>I applied for the <a href="https://wiki.gnome.org/Apps/Music" target="_blank" rel="noopener noreffer">Music</a> project under GNOME. I’ve always fancied music, making music and now I wanted to make a music player to play that music. So, when I saw the <a href="https://wiki.gnome.org/Apps/Music" target="_blank" rel="noopener noreffer">Music</a> listed for GSoC, I knew, I just knew that it was the “one”. I started contributing to the project and made some minor fixes, here and there. Those fixes taught me a lot about open source.</p>
