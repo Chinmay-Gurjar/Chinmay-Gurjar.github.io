@@ -1,19 +1,28 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+&lt;?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+xmlns:content="http://purl.org/rss/1.0/modules/content/"
+xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+xmlns:dc="http://purl.org/dc/elements/1.1/"
+xmlns:atom="http://www.w3.org/2005/Atom"
+xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+>
     <channel>
         <title>Blog</title>
+        <atom:link href="http://chinmay-gurjar.github.io/" rel="self" type="application/rss+xml" />
         <link>http://chinmay-gurjar.github.io/</link>
         <description>About LoveIt Theme</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>chnmgurjar@gmail.com (Chinmay)</managingEditor>
-            <webMaster>chnmgurjar@gmail.com (Chinmay)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 May 2020 19:26:50 &#43;0530</lastBuildDate><atom:link href="http://chinmay-gurjar.github.io/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 17 May 2020 19:26:50 &#43;0530</lastBuildDate><item>
     <title>Chapter 1: A New Tale Begins</title>
     <link>http://chinmay-gurjar.github.io/posts/getting-selected/</link>
+    <dc:creator>Chinmay</dc:creator>
     <pubDate>Sun, 17 May 2020 19:26:50 &#43;0530</pubDate>
+
     <guid>http://chinmay-gurjar.github.io/posts/getting-selected/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/GSoCbg.png" referrerpolicy="no-referrer">
             </div>It was around 23:25(IST) on the 4th of May, my brother and I were glued to our phone screens, the GSoC webpage open, eagerly waiting for the results (he was visibly the more excited one). And BAM! 23:31, I saw my name on the GSoC website. Then followed a tsunami of “congratulations”. I&rsquo;ve been accepted into GSoC to work with GNOME.
 I applied for the Music project under GNOME. I’ve always fancied music, making music and now I wanted to make a music player to play that music.]]></description>
-    <content><![CDATA[<div class="featured-image">
+    <content:encoded><![CDATA[<div class="featured-image">
                 <img src="/GSoCbg.png" referrerpolicy="no-referrer">
             </div><p>It was around 23:25(IST) on the 4th of May, my brother and I were glued to our phone screens, the GSoC webpage open, eagerly waiting for the results (he was visibly the more excited one). And BAM! 23:31, I saw my name on the GSoC website. Then followed a tsunami of “congratulations”. <strong>I&rsquo;ve been accepted into GSoC to work with GNOME</strong>.</p>
 <p>I applied for the <a href="https://wiki.gnome.org/Apps/Music" target="_blank" rel="noopener noreffer">Music</a> project under GNOME. I’ve always fancied music, making music and now I wanted to make a music player to play that music. So, when I saw the <a href="https://wiki.gnome.org/Apps/Music" target="_blank" rel="noopener noreffer">Music</a> listed for GSoC, I knew, I just knew that it was the “one”. I started contributing to the project and made some minor fixes, here and there. Those fixes taught me a lot about open source.</p>
@@ -32,6 +41,6 @@ I applied for the Music project under GNOME. I’ve always fancied music, making
 <p>So, this summer I’ll be working on Music to add remote sources support. This will allow Music to list and play the songs stored on media servers such as DLNA and DAAP. Jean Felder will be mentoring me during the whole process, and I hope to learn a lot from him.</p>
 <p>I really want to thank Jean and Marinus who helped and guided me during this whole process.</p>
 <p>I am really looking forward to work on this project!!</p>
-]]></content>
+]]></content:encoded>
 </item></channel>
 </rss>
