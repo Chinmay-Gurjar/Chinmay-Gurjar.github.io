@@ -4,7 +4,52 @@
         <link>http://chinmay-gurjar.github.io/tags/open-source/</link>
         <description>Open Source - Tag - Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>chnmgurjar@gmail.com (Chinmay)</managingEditor>
-            <webMaster>chnmgurjar@gmail.com (Chinmay)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 17 May 2020 19:26:50 &#43;0530</lastBuildDate><atom:link href="http://chinmay-gurjar.github.io/tags/open-source/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>chnmgurjar@gmail.com (Chinmay)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Thu, 09 Jul 2020 19:26:50 &#43;0530</lastBuildDate><atom:link href="http://chinmay-gurjar.github.io/tags/open-source/" rel="self" type="application/rss+xml" /><item>
+    <title>Chapter 2: Passes the first Mountain</title>
+    <link>http://chinmay-gurjar.github.io/posts/passes-the-first-mountain/</link>
+    <dc:creator>Chinmay</dc:creator>
+    <pubDate>Thu, 09 Jul 2020 19:26:50 &#43;0530</pubDate>
+
+    <guid>http://chinmay-gurjar.github.io/posts/passes-the-first-mountain/</guid>
+    <description><![CDATA[It has been a month since the coding period has begun. And it is going great, we have managed to get most of the work for the first milestone done. This month&rsquo;s work included adding support for DLNA sources to Music, so that it can list and play media from the DLNA server.
+FIRST THINGS FIRST !
+What is DLNA and DLNA media server? Digital Living Network Alliance, or as we know it, DLNA, is a set of rules and specs that specifies standards and guidelines for media streaming devices.]]></description>
+    <content:encoded><![CDATA[<p>It has been a month since the coding period has begun. And it is going great, we have managed to get most of the work for the first milestone done.
+This month&rsquo;s work included adding support for DLNA sources to Music, so that it can list and play media from the DLNA server.</p>
+<p><em>FIRST THINGS FIRST !</em></p>
+<p>What is DLNA and DLNA media server?
+Digital Living Network Alliance, or as we know it, DLNA, is a set of rules and specs that specifies standards and guidelines for media streaming devices. DLNA-compatible devices use UPnP(Universal Plug and Play) to communicate with other DLNA devices.</p>
+<p>Once a DLNA media server is plugged into a &ldquo;Home Network&rdquo;(LAN), it can browse, open/play, search, download or upload any type of media for you.
+I&rsquo;m using Rygel as a DLNA server, and for all the testing.</p>
+<p>My GSoC project is to add support for the remote sources in Music, and this coding period I added support for DLNA/UPnP sources.
+So each manufacturer usually produces its DLNA-compliant device, and have to implement some very low-level UPnP APIs. To save us from the misery of writing such APIs, we use dLeyna.</p>
+<p>Now, what is dLeyna?
+dLeyna is a set of middleware components that is designed to simplify the task of writing DLNA enabled applications. These applications can be servers, renderers, players, or remotes. The dLeyna APIs are much higher level and easier to use than the underlying UPnP APIs upon which dLeyna depends.</p>
+<p><strong>So what did I implement this coding period and the problems I faced?</strong></p>
+<p>Up until now, users have had just a single option to play songs in Music, if you want to play them, get them in your file system. But with this month of work, now Music users can play songs from a DLNA media server connected to their local network. The barebone of the feature is complete, and Music can serve its user with songs from the media server. We still have some issues to resolve before merging it.
+In Music we have separate <code>Grilo Wrappers</code> for each source, since I was working on Dleyna source, mine was called <code>GrlDleynaWrapper</code>. So, DleynaWrapper is supposed to have all the functions related to the source. These functions included querying the source for retrieving songs, albums and artists from the server, getting album arts, albums for artists, and some other stuff.
+Now there are some problems with the current implementations. Since we use grilo-plugins for all our sources, dleyna also has to depend on grilo-plugins for media discovery. While it does an awesome job for most of the part, there are some of the places where it doesn&rsquo;t correctly fit the pieces.</p>
+<p>Some Issues that I ran into :</p>
+<ul>
+<li>
+<p>Music depends heavily on search queries to retrieve media items from Dleyna source, so there has to be a way to check whether the Dleyna source supports search or not. If a Dleyna source does not support search(or if its containers aren&rsquo;t searchable), it should not be allowed to query the source. So we can add a function in grilo-plugins to check for the search capabilities.</p>
+</li>
+<li>
+<p>In Music, we prefer to use the album&rsquo;s artist to populate our artist view, but the problem with dleyna source is that it does not extract and store artist for albums. So for now, we have to rely on music items carrying their artist to populate the view. It can be resolved by letting album containers have their artist, and then these artists can be used to populate the views. But it really depends on how each server serves data.</p>
+</li>
+<li>
+<p>Some albums especially the long ones, often have discs that replicate the actual physical discs. UPnP and in turn DLNA, specs don&rsquo;t specify media items to contain disks. But there&rsquo;s a thing with album containers in UPnP, they may contain other containers and these containers act as discs.</p>
+</li>
+<li>
+<p>The album art is supposed to be in the <code>upnp:albumArtURI</code> property of the albums, but most of the servers do not put album arts in the album container, instead it is set in the media items.</p>
+</li>
+</ul>
+<p>Well, some of the issues are really server dependent. Since I&rsquo;m using Rygel, maybe I&rsquo;ll try and add the above-mentioned changes in it.</p>
+<p>Hey, you guys can check my MR <a href="https://gitlab.gnome.org/GNOME/gnome-music/-/merge_requests/713" target="_blank" rel="noopener noreffer">here</a> and maybe help me in improving it.</p>
+<p>Lastly, I would like to thank, my mentor Jean Felder, and Marinus Schraal, who have been patiently supporting and helping me.</p>
+<p>Until next time !!</p>
+]]></content:encoded>
+</item><item>
     <title>Chapter 1: A New Tale Begins</title>
     <link>http://chinmay-gurjar.github.io/posts/getting-selected/</link>
     <dc:creator>Chinmay</dc:creator>
