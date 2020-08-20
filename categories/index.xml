@@ -13,8 +13,48 @@ xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
         <description>
             Chinmay's Blog
         </description>
-        <generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 09 Jul 2020 19:26:50 &#43;0530</lastBuildDate><item>
-    <title>Chapter 2: Passes the first Mountain</title>
+        <generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 12 Aug 2020 19:26:50 &#43;0530</lastBuildDate><item>
+    <title>Chapter 4: Adventures with change tracking</title>
+    <link>http://chinmay-gurjar.github.io/posts/mini-story1/</link>
+    <dc:creator>Chinmay</dc:creator>
+    <pubDate>Wed, 12 Aug 2020 19:26:50 &#43;0530</pubDate>
+
+    <guid>http://chinmay-gurjar.github.io/posts/mini-story1/</guid>
+    <description><![CDATA[So This week I was working on change tracking in Music.
+What is change Tracking?
+So change tracking is a mechanism to let the source know that there have been some changes in the server data, and your client should adapt to those changes. For example, let&rsquo;s say we have an album and, I deleted a song from that album, so my source sends a signal to my client that there is a change in album container and, you need to update it accordingly.]]></description>
+    <content:encoded><![CDATA[<p>So This week I was working on change tracking in Music.</p>
+<p><em>What is change Tracking?</em><br>
+So change tracking is a mechanism to let the source know that there have been some changes in the server data, and your client should adapt to those changes. For example, let&rsquo;s say we have an album and, I deleted a song from that album, so my source sends a signal to my client that there is a change in album container and, you need to update it accordingly.</p>
+<p>We had to implement the same thing in Music. There was one problem with dleyna-server, But wait, what is dleyna-server? it is a set of services that allow clients to discover and manipulate media from DLNA server.<br>
+So the problem with dleyna-server is that it changes the media id set by DLNA server to its own path, although the path is unique for each item, it couldn&rsquo;t be used to trace back to the element. I needed DLNA id to query the element, which was not possible with the path property.<br>
+To overcome this problem what I did was,  I added an ID property to the media objects, that had the original IDs of object straight from DLNA sources. And now these IDs could be used for querying the elements from the DLNA source.</p>
+<p>Now there&rsquo;s a major problem with DLNA sources that, there is no defined structure to the server. Each provider has its own implementation, and hence a different structure. So there can be two or more containers for albums.<br>
+The problem was when a song from the server is changed, there is no way to tell for sure which container id we&rsquo;ll get. To get over this problem what we do now is query all the albums and artists whenever we get a content-changed signal.</p>
+<p>It was later in the week that I came to know that there was functionality in grilo-plugins that lets me get complete media from the path property, and I didn&rsquo;t need the changes in dleyna-server for change tracking. But still, it would be great to have actual ids so that we can query media using ids.</p>
+]]></content:encoded>
+</item><item>
+    <title>Chapter 3: The Second Mountain</title>
+    <link>http://chinmay-gurjar.github.io/posts/pass/</link>
+    <dc:creator>Chinmay</dc:creator>
+    <pubDate>Wed, 05 Aug 2020 19:26:50 &#43;0530</pubDate>
+
+    <guid>http://chinmay-gurjar.github.io/posts/pass/</guid>
+    <description><![CDATA[So, last month I added support for DLNA sources, and this month was supposed to be for DAAP sources, but there are a lot of things still going on with DLNA sources. There was a lot of stuff that was missing and I&rsquo;m going to talk about problems with some of them.
+Progress with DLNA
+One of the main ones was the latency and processing power of the media servers. Whenever we work with servers, we dump in queries on them, and a large enough query can make our media server freeze, so it&rsquo;s better to load data in small chunks from our end so that we can guarantee smooth media extraction from the server.]]></description>
+    <content:encoded><![CDATA[<p>So, last month I added support for DLNA sources, and this month was supposed to be for DAAP sources,  but there are a lot of things still going on with DLNA sources. There was a lot of stuff that was missing and I&rsquo;m going to talk about problems with some of them.</p>
+<p><strong>Progress with DLNA</strong></p>
+<p>One of the main ones was the latency and processing power of the media servers. Whenever we work with servers, we dump in queries on them, and a large enough query can make our media server freeze, so it&rsquo;s better to load data in small chunks from our end so that we can guarantee smooth media extraction from the server.</p>
+<p>For DLNA sources, search and query are kinds of same functions. While searching a media server, a search query needs to be given and that is how we query a UPnP media server. Gnome Music depends highly on querying sources for media data, and while testing with different servers, we noticed that some media server only support search and not the query functionality(WIERD, right ?). So need a way to check for search capabilities and query capabilities individually. This issue is still unresolved.</p>
+<p>Music traditionally extracts songs, albums, and artists simultaneously. We use songs to populate music, album and artist views, and albums to populate artist and album views. When working with servers, it cannot be ensured that we get songs before albums or albums before artists. So to tackle this one, we had to hard force Music to extract songs, albums, and artists in mentioned order for dleyna source.</p>
+<p><strong>Progress with DAAP</strong></p>
+<p>I also added support for DAAP, but it is far from being complete. Unlike DLNA sources, DAAP is supported mostly for Apple devices, and I&rsquo;m on a Linux machine. I&rsquo;m using Rhythmbox for my DAAP server(Yes, Rhythmbox has an inbuilt DAAP server, you just need to enable it). Like I already mentioned Music depends on queries for getting media from the server, DAAP servers which I use for testing bench doesn&rsquo;t have search functionality. That is why we need to depend on browsing data, which doesn&rsquo;t leave us with a lot of flexibility.<br>
+Apart from the implementation, one thing which took up a lot of time was getting Music to talk to my DAAP server in flatpak. A DAAP server talks over an Avahi dbus to Music.</p>
+<p>There are still some functionalities left to implement in DLNA, such as change-tracking and some album art things. So I&rsquo;m going to work on some backlogs and search redesign in the coming month.</p>
+]]></content:encoded>
+</item><item>
+    <title>Chapter 2: The first Mountain</title>
     <link>http://chinmay-gurjar.github.io/posts/passes-the-first-mountain/</link>
     <dc:creator>Chinmay</dc:creator>
     <pubDate>Thu, 09 Jul 2020 19:26:50 &#43;0530</pubDate>
