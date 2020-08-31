@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>GSoC Final Report - Blog</title>
+        <meta name="Description" content="About LoveIt Theme"><meta property="og:title" content="GSoC Final Report" />
+<meta property="og:description" content="I&rsquo;ve been working on Music for the past three months, adding support for remote sources. The work included adding support for dLeyna and DMAP source for Music.
+Why is this project needed:
+Music currently list and plays songs only from the local filesystem (that are indexed by Tracker), there is no way to browse and play songs from remote sources such as DLNA and DAAP.
+Most of the users have their media on media servers and not on file-system, right now if there are no songs on the computer an empty search view is created notifying you that no songs are present on the computer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://chinmay-gurjar.github.io/posts/final-report/" />
+<meta property="og:image" content="http://chinmay-gurjar.github.io/1.jpg" />
+<meta property="article:published_time" content="2020-08-30T19:26:50+05:30" />
+<meta property="article:modified_time" content="2020-08-30T19:26:50+05:30" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://chinmay-gurjar.github.io/1.jpg"/>
+
+<meta name="twitter:title" content="GSoC Final Report"/>
+<meta name="twitter:description" content="I&rsquo;ve been working on Music for the past three months, adding support for remote sources. The work included adding support for dLeyna and DMAP source for Music.
+Why is this project needed:
+Music currently list and plays songs only from the local filesystem (that are indexed by Tracker), there is no way to browse and play songs from remote sources such as DLNA and DAAP.
+Most of the users have their media on media servers and not on file-system, right now if there are no songs on the computer an empty search view is created notifying you that no songs are present on the computer."/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://chinmay-gurjar.github.io/posts/final-report/" /><link rel="prev" href="http://chinmay-gurjar.github.io/posts/mini-story1/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "GSoC Final Report",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/chinmay-gurjar.github.io\/posts\/final-report\/"
+        },"genre": "posts","keywords": "GSoC, GNOME, Open Source","wordcount":  747 ,
+        "url": "http:\/\/chinmay-gurjar.github.io\/posts\/final-report\/","datePublished": "2020-08-30T19:26:50+05:30","dateModified": "2020-08-30T19:26:50+05:30","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","author": {
+                "@type": "Person",
+                "name": "Chinmay"
+            },"description": ""
+    }
+    </script></head>
+    <body><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog">Blog</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i>  </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog">Blog</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="https://github.com/dillonzq/LoveIt" title="GitHub" rel="noopener noreffer" target="_blank"><i class='fab fa-github fa-fw'></i></a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">GSoC Final Report</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="chnmgurjar@gmail.com" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Chinmay</a></span>&nbsp;
+                    <span class="post-category">included in<a href="/categories/gsoc/">
+                                <i class="far fa-folder fa-fw"></i>GSoC
+                            </a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i><time datetime=2020-08-30>2020-08-30</time>&nbsp;
+                <i class="fas fa-pencil-alt fa-fw"></i>about 747 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>4 min&nbsp;</div>
+        </div><div class="content" id="content"><p>I&rsquo;ve been working on Music for the past three months, adding support for remote sources. The work included adding support for dLeyna and DMAP source for Music.</p>
+<p><strong>Why is this project needed:</strong><br>
+Music currently list and plays songs only from the local filesystem (that are indexed by Tracker), there is no way to browse and play songs from remote sources such as DLNA and DAAP.<br>
+Most of the users have their media on media servers and not on file-system, right now if there are no songs on the computer an empty search view is created notifying you that no songs are present on the computer.</p>
+<p><strong>Some frameworks important to the project</strong><br>
+Grilo is a framework focused on making media discovery and browsing easy for application developers, and Music uses grilo-plugins for media discovery. Grilo plugins support tons of sources such as Tracker, Jamendo, UPnP, etc.<br>
+Grilo-plugins also supports dLeyna(for DLNA) and DMAP(for DAAP) sources, so I&rsquo;ll be using grilo-plugins for media discovery from DLNA and DAAP servers.</p>
+<p>dLeyna-server is a high-level media content API that allows client applications to discover, browse, and search UPnP and DLNA media servers and is implemented over the GUPnP library. This takes care of all the communication between the server and the grilo-plugins. When we make any request to the server, grilo-plugins relay the request using dLeyna-server, and dLeyna-server uses GUPnP to actually make requests to the media server.</p>
+<p>Libdmapsharing is a library that allows programs to access, share, and control the playback of media content using DMAP.</p>
+<p><strong>My project includes the following tasks:</strong></p>
+<ol>
+<li>Adding support for dLeyna sources</li>
+<li>Adding support for DAAP sources</li>
+<li>Customizing search view to support various sources</li>
+</ol>
+<h3 id="dleyna-support">dLeyna Support</h3>
+<p>Related Issue: <a href="https://gitlab.gnome.org/GNOME/gnome-music/-/issues/396" target="_blank" rel="noopener noreffer">#396</a></p>
+<p>Related Merge Request: <a href="https://gitlab.gnome.org/GNOME/gnome-music/-/merge_requests/713" target="_blank" rel="noopener noreffer">!713</a></p>
+<p>dLeyna source is based on UPnP protocol that allows us to use media server with no configuration i.e. a zero-conf server, it is also the most commonly used media server, as it is easy to set up.<br>
+This feature will not require any additional configuration, to see media hosted on the home network, just shoot up the Music application and the media from the dLeyna source will be added to the respective views.</p>
+<h3 id="daap-support">DAAP Support</h3>
+<p>Related Merge Request: <a href="https://gitlab.gnome.org/GNOME/gnome-music/-/merge_requests/740" target="_blank" rel="noopener noreffer">!740</a></p>
+<p><strong>Problem:</strong><br>
+The DAAP(or DMAP) protocol is built and used by Apple devices, so they haven&rsquo;t released the specifications publically, but it has been reverse-engineered to the extent that media can be discovered and played on the other platforms(other than macOS).
+It really restricts us with the level of support, the media we get often do not contain enough data.<br>
+Right now a minimal support is provided in Music, this just list songs from DAAP server and can play them, but this doesn&rsquo;t have all the media metadata such as artist, date, genre, etc.(it only displays the information given by the server)</p>
+<p>This feature also doesn&rsquo;t need any configuration, just connect to your home network that already has a DAAP server, and Music will list all the songs hosted and you will be able to play them.</p>
+<h5 id="what-works">What Works</h5>
+<ol>
+<li>Music can fetch media from dLeyna sources and play them.</li>
+<li>Search works for dLeyna sources.</li>
+<li>Music can fetch media from DAAP sources and play them, but it doesn&rsquo;t have all the information that should be associated with a media.</li>
+</ol>
+<h5 id="future-plans">Future Plans</h5>
+<ol>
+<li>Search Redesign and customization to take in and filter the media from different sources.</li>
+<li>Addressing some of the issues with dLeyna sources.</li>
+</ol>
+<h3 id="gnome-community">GNOME Community</h3>
+<p>This is the first time I&rsquo;ve ever worked on a proper open source project, GNOME as a community has taught me a lot on how to work on a project, and I&rsquo;ve to hand it to Jean Felder and Marinus Schraal, who have always been there to help me. I&rsquo;ve also had encounters with Victor Toso and Jens Georg and these guys were really helpful, especially Jens listening to me patiently and helping me with very simple things.</p>
+<h4 id="guadec">GUADEC</h4>
+<p>GUADEC is the GNOME community&rsquo;s conference, which brings together users, developers, and community members for a week-long package of events. Each talk very informative and I learned a lot from these talks.</p>
+<p>GUADEC had an event for GSoC and Outreachy interns where we got to present our projects (HOW COOL IS THAT!!).</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>GSoC may have come to an end, but this doesn&rsquo;t mark an end to my journey with GNOME, I would still be around contributing to Music and other projects.<br>
+At last, I would like to thank Jean and Marinus with all my heart for their support and guidance.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>The article was updated on 2020-08-30</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/gsoc/">GSoC</a>,&nbsp;<a href="/tags/gnome/">GNOME</a>,&nbsp;<a href="/tags/open-source/">Open Source</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/mini-story1/" class="prev" rel="prev" title="Chapter 4: Adventures With Change Tracking"><i class="fas fa-angle-left fa-fw"></i>Chapter 4: Adventures With Change Tracking</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.74.3">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.6"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+                </div><div class="footer-line"></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript">
+    window.config = {"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"headerMode":{"desktop":"fixed","mobile":"auto"}};
+</script><script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js?features=html5shiv%2CElement.prototype.closest%2CrequestAnimationFrame%2CCustomEvent%2CPromise%2CObject.entries%2CObject.assign%2CObject.values%2Cfetch%2CElement.prototype.after%2CArray.prototype.fill%2CIntersectionObserver%2CArray.from%2CArray.prototype.find%2CMath.sign"></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/object-fit-images/ofi.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

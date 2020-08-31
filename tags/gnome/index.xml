@@ -4,8 +4,66 @@
         <link>http://chinmay-gurjar.github.io/tags/gnome/</link>
         <description>GNOME - Tag - Blog</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>chnmgurjar@gmail.com (Chinmay)</managingEditor>
-            <webMaster>chnmgurjar@gmail.com (Chinmay)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Wed, 12 Aug 2020 19:26:50 &#43;0530</lastBuildDate><atom:link href="http://chinmay-gurjar.github.io/tags/gnome/" rel="self" type="application/rss+xml" /><item>
-    <title>Chapter 4: Adventures with change tracking</title>
+            <webMaster>chnmgurjar@gmail.com (Chinmay)</webMaster><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Sun, 30 Aug 2020 19:26:50 &#43;0530</lastBuildDate><atom:link href="http://chinmay-gurjar.github.io/tags/gnome/" rel="self" type="application/rss+xml" /><item>
+    <title>GSoC Final Report</title>
+    <link>http://chinmay-gurjar.github.io/posts/final-report/</link>
+    <dc:creator>Chinmay</dc:creator>
+    <pubDate>Sun, 30 Aug 2020 19:26:50 &#43;0530</pubDate>
+
+    <guid>http://chinmay-gurjar.github.io/posts/final-report/</guid>
+    <description><![CDATA[I&rsquo;ve been working on Music for the past three months, adding support for remote sources. The work included adding support for dLeyna and DMAP source for Music.
+Why is this project needed:
+Music currently list and plays songs only from the local filesystem (that are indexed by Tracker), there is no way to browse and play songs from remote sources such as DLNA and DAAP.
+Most of the users have their media on media servers and not on file-system, right now if there are no songs on the computer an empty search view is created notifying you that no songs are present on the computer.]]></description>
+    <content:encoded><![CDATA[<p>I&rsquo;ve been working on Music for the past three months, adding support for remote sources. The work included adding support for dLeyna and DMAP source for Music.</p>
+<p><strong>Why is this project needed:</strong><br>
+Music currently list and plays songs only from the local filesystem (that are indexed by Tracker), there is no way to browse and play songs from remote sources such as DLNA and DAAP.<br>
+Most of the users have their media on media servers and not on file-system, right now if there are no songs on the computer an empty search view is created notifying you that no songs are present on the computer.</p>
+<p><strong>Some frameworks important to the project</strong><br>
+Grilo is a framework focused on making media discovery and browsing easy for application developers, and Music uses grilo-plugins for media discovery. Grilo plugins support tons of sources such as Tracker, Jamendo, UPnP, etc.<br>
+Grilo-plugins also supports dLeyna(for DLNA) and DMAP(for DAAP) sources, so I&rsquo;ll be using grilo-plugins for media discovery from DLNA and DAAP servers.</p>
+<p>dLeyna-server is a high-level media content API that allows client applications to discover, browse, and search UPnP and DLNA media servers and is implemented over the GUPnP library. This takes care of all the communication between the server and the grilo-plugins. When we make any request to the server, grilo-plugins relay the request using dLeyna-server, and dLeyna-server uses GUPnP to actually make requests to the media server.</p>
+<p>Libdmapsharing is a library that allows programs to access, share, and control the playback of media content using DMAP.</p>
+<p><strong>My project includes the following tasks:</strong></p>
+<ol>
+<li>Adding support for dLeyna sources</li>
+<li>Adding support for DAAP sources</li>
+<li>Customizing search view to support various sources</li>
+</ol>
+<h3 id="dleyna-support">dLeyna Support</h3>
+<p>Related Issue: <a href="https://gitlab.gnome.org/GNOME/gnome-music/-/issues/396" target="_blank" rel="noopener noreffer">#396</a></p>
+<p>Related Merge Request: <a href="https://gitlab.gnome.org/GNOME/gnome-music/-/merge_requests/713" target="_blank" rel="noopener noreffer">!713</a></p>
+<p>dLeyna source is based on UPnP protocol that allows us to use media server with no configuration i.e. a zero-conf server, it is also the most commonly used media server, as it is easy to set up.<br>
+This feature will not require any additional configuration, to see media hosted on the home network, just shoot up the Music application and the media from the dLeyna source will be added to the respective views.</p>
+<h3 id="daap-support">DAAP Support</h3>
+<p>Related Merge Request: <a href="https://gitlab.gnome.org/GNOME/gnome-music/-/merge_requests/740" target="_blank" rel="noopener noreffer">!740</a></p>
+<p><strong>Problem:</strong><br>
+The DAAP(or DMAP) protocol is built and used by Apple devices, so they haven&rsquo;t released the specifications publically, but it has been reverse-engineered to the extent that media can be discovered and played on the other platforms(other than macOS).
+It really restricts us with the level of support, the media we get often do not contain enough data.<br>
+Right now a minimal support is provided in Music, this just list songs from DAAP server and can play them, but this doesn&rsquo;t have all the media metadata such as artist, date, genre, etc.(it only displays the information given by the server)</p>
+<p>This feature also doesn&rsquo;t need any configuration, just connect to your home network that already has a DAAP server, and Music will list all the songs hosted and you will be able to play them.</p>
+<h5 id="what-works">What Works</h5>
+<ol>
+<li>Music can fetch media from dLeyna sources and play them.</li>
+<li>Search works for dLeyna sources.</li>
+<li>Music can fetch media from DAAP sources and play them, but it doesn&rsquo;t have all the information that should be associated with a media.</li>
+</ol>
+<h5 id="future-plans">Future Plans</h5>
+<ol>
+<li>Search Redesign and customization to take in and filter the media from different sources.</li>
+<li>Addressing some of the issues with dLeyna sources.</li>
+</ol>
+<h3 id="gnome-community">GNOME Community</h3>
+<p>This is the first time I&rsquo;ve ever worked on a proper open source project, GNOME as a community has taught me a lot on how to work on a project, and I&rsquo;ve to hand it to Jean Felder and Marinus Schraal, who have always been there to help me. I&rsquo;ve also had encounters with Victor Toso and Jens Georg and these guys were really helpful, especially Jens listening to me patiently and helping me with very simple things.</p>
+<h4 id="guadec">GUADEC</h4>
+<p>GUADEC is the GNOME community&rsquo;s conference, which brings together users, developers, and community members for a week-long package of events. Each talk very informative and I learned a lot from these talks.</p>
+<p>GUADEC had an event for GSoC and Outreachy interns where we got to present our projects (HOW COOL IS THAT!!).</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>GSoC may have come to an end, but this doesn&rsquo;t mark an end to my journey with GNOME, I would still be around contributing to Music and other projects.<br>
+At last, I would like to thank Jean and Marinus with all my heart for their support and guidance.</p>
+]]></content:encoded>
+</item><item>
+    <title>Chapter 4: Adventures With Change Tracking</title>
     <link>http://chinmay-gurjar.github.io/posts/mini-story1/</link>
     <dc:creator>Chinmay</dc:creator>
     <pubDate>Wed, 12 Aug 2020 19:26:50 &#43;0530</pubDate>
@@ -45,7 +103,7 @@ Apart from the implementation, one thing which took up a lot of time was getting
 <p>There are still some functionalities left to implement in DLNA, such as change-tracking and some album art things. So I&rsquo;m going to work on some backlogs and search redesign in the coming month.</p>
 ]]></content:encoded>
 </item><item>
-    <title>Chapter 2: The first Mountain</title>
+    <title>Chapter 2: The First Mountain</title>
     <link>http://chinmay-gurjar.github.io/posts/passes-the-first-mountain/</link>
     <dc:creator>Chinmay</dc:creator>
     <pubDate>Thu, 09 Jul 2020 19:26:50 &#43;0530</pubDate>
